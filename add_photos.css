@@ -1,0 +1,556 @@
+/* General Styles */
+form#uploadForm {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  /* padding: 20px; */
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form#uploadForm fieldset {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+form#uploadForm legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Select Album Section */
+
+fieldset:has(#uploadedPhotos) {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+fieldset.selectAlbum {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+fieldset.selectAlbum select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#linkToCreate {
+  font-size: 0.9em;
+  color: #007bff;
+}
+
+#linkToCreate a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#linkToCreate a:hover {
+  text-decoration: underline;
+}
+
+/* File Selection Section */
+fieldset.selectFiles {
+  text-align: center;
+}
+
+button#addFiles {
+  padding: 4px 10px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#addFiles:hover {
+  background-color: #0056b3;
+}
+
+#uploadWarningsSummary {
+  font-size: 0.9em;
+  color: #555;
+  margin: 10px 0;
+}
+
+#uploadWarnings {
+  color: #d9534f;
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+/* Photo Properties Section */
+#photoProperties {
+  display: none; /* Initially hidden */
+}
+
+#photoProperties p {
+  margin-bottom: 10px;
+}
+
+#photoProperties input[type='text'],
+#photoProperties input[type='datetime-local'],
+#photoProperties textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.tags-keyword {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  gap: 5px;
+}
+
+.tag-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.tag-wrapper button.delete-tag {
+  margin-left: 5px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+#btn-add-tag-new {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btn-add-tag-new:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* List Tags with Scroll and Animation */
+ul.list-tags {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.list-tags li {
+  background-color: #f1f1f1;
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: fadeIn 0.5s ease;
+}
+
+.list-tags li:hover {
+  background-color: #e2e2e2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Privacy Dropdown */
+#photoProperties select[name='level'] {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Upload Actions */
+#uploadingActions {
+  display: none;
+  text-align: center;
+}
+
+button#startUpload {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#startUpload:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button#cancelUpload {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#cancelUpload:hover {
+  background-color: #a71d2a;
+}
+
+div.big-progressbar {
+  margin: 10px 0;
+}
+
+/* Show Photo Properties Button */
+#showPhotoProperties {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 1em;
+  background-color: #17a2b8;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#showPhotoProperties:hover {
+  background-color: #138496;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form#uploadForm {
+    padding: 15px;
+  }
+
+  form#uploadForm fieldset {
+    padding: 8px;
+  }
+
+  button#addFiles,
+  button#startUpload,
+  button#cancelUpload,
+  #btn-add-tag-new,
+  #showPhotoProperties {
+    font-size: 0.9em;
+    padding: 8px 15px;
+  }
+
+  #photoProperties input[type='text'],
+  #photoProperties input[type='datetime-local'],
+  #photoProperties textarea {
+    font-size: 0.9em;
+  }
+
+  ul.list-tags {
+    max-height: 150px;
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Style cho phần chứa thông tin upload */
+.infos {
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.infos i {
+  color: #00796b;
+  margin-right: 5px;
+}
+
+.infos ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.infos ul li {
+  font-size: 14px;
+}
+
+/* Style cho phần lỗi */
+.errors {
+  background-color: #ffebee;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Mặc định ẩn */
+}
+
+.errors i {
+  color: #d32f2f;
+  margin-right: 5px;
+}
+
+.errors ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.errors ul li {
+  font-size: 14px;
+  color: #d32f2f;
+}
+
+/* Style cho các liên kết thêm ảnh */
+.afterUploadActions {
+  margin-top: 10px;
+}
+
+.afterUploadActions a {
+  text-decoration: none;
+  color: #039be5;
+  font-weight: bold;
+}
+
+.afterUploadActions a:hover {
+  color: #0288d1;
+}
+
+/* Style cho các phần lỗi khi tạo album */
+#formErrors {
+  background-color: #ffccbc;
+  padding: 10px;
+  border-radius: 5px;
+  display: none; /* Mặc định ẩn */
+}
+
+#formErrors ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#formErrors ul li {
+  font-size: 14px;
+  color: #e64a19;
+}
+
+/* Style cho button ẩn lỗi */
+.hideButton {
+  text-align: center;
+}
+
+.hideButton a {
+  text-decoration: none;
+  color: #039be5;
+  font-weight: bold;
+}
+
+.hideButton a:hover {
+  color: #0288d1;
+}
+
+/* Style cho form tạo album */
+#addAlbumForm {
+  background-color: #f1f8e9;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  margin: 20px auto;
+}
+
+#addAlbumForm input[type='text'],
+#addAlbumForm select {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#addAlbumForm input[type='submit'] {
+  background-color: #039be5;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#addAlbumForm input[type='submit']:hover {
+  background-color: #0288d1;
+}
+
+/* Style cho phần upload ảnh */
+#uploadForm fieldset {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#uploadForm fieldset legend {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#uploadForm .albumSelection select {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style cho file uploader */
+#uploader {
+  margin-top: 20px;
+}
+
+#uploadWarningsSummary {
+  font-size: 14px;
+  color: #555;
+}
+
+#uploadWarningsSummary a {
+  color: #039be5;
+}
+
+#uploadWarningsSummary a:hover {
+  color: #0288d1;
+}
+
+.plupload_filelist {
+  list-style-type: none;
+  padding: 0;
+}
+
+.plupload_filelist li {
+  margin-bottom: 10px;
+}
+
+.plupload_filelist .plupload_file_name {
+  display: inline-block;
+  width: 200px;
+}
+
+.plupload_filelist .plupload_file_size {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+}
+
+.plupload_filelist .plupload_file_status {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+}
+
+/* Style cho phần ảnh đã upload */
+#uploadedPhotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#uploadedPhotos img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.3s;
+  border: 0.5px solid;
+}
+
+#uploadedPhotos img:hover {
+  transform: scale(1.1);
+}
+
+/* Style cho các phần khác như nút và mô tả */
+#photoProperties {
+  margin-top: 20px;
+}
+
+#photoProperties input[type='text'],
+#photoProperties input[type='datetime-local'],
+#photoProperties select,
+#photoProperties textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#photoProperties textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+/* Nút hủy upload */
+#cancelUpload {
+  background-color: #e64a19;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#cancelUpload:hover {
+  background-color: #d32f2f;
+}
+
+/* Nút bắt đầu upload */
+#startUpload {
+  background-color: #039be5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#startUpload:hover {
+  background-color: #0288d1;
+}
